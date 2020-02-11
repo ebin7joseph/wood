@@ -45,26 +45,16 @@ def createModel(inputshape):
      
     return model
 
-
-
-
-
-
 def natural_key(string_):
     return [int(s) if s.isdigit() else s for s in re.split(r'(\d+)', string_)]
 
 paths = []
-
 for i in range(1,13):
-    paths.append('WoodDataset/train/' + str(i))
-
+    paths.append('/WoodDataset/Train/' + str(i) + "/")
 
 uri = []
-
 for i in paths:
-    uri.append(sorted(glob.glob(os.path.join(i, '*.jpg')), key=natural_key))
-
-
+    uri.append(sorted(glob.glob(os.path.join(os.getcwd() + i, '*.jpg')), key=natural_key))
 
 width = 200
 height = 100
@@ -81,8 +71,6 @@ for u in uri:
         dataset.append(img)
         label.append([1,0])
         i += 1
-
-
 
 dataset = np.array(dataset, dtype="float") / 255.0
 label = np.array(label, dtype = 'int')
