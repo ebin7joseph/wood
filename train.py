@@ -50,7 +50,7 @@ def natural_key(string_):
 
 paths = []
 for i in range(1,13):
-    paths.append('wood/WoodDataset/Train/' + str(i) + "/")
+    paths.append('WoodDataset/Train/' + str(i) + "/")
 
 uri = []
 for i in paths:
