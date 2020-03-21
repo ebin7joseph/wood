@@ -72,7 +72,7 @@ for u in uri:
         temp = [0,0,0,0,0,0,0,0,0,0,0,0]
         temp[i] = 1
         label.append(temp)
-        i -=- 1
+        i += 1
 
 dataset = np.array(dataset, dtype="float") / 255.0
 label = np.array(label, dtype = 'int')
