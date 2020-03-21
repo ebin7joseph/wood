@@ -50,7 +50,7 @@ def natural_key(string_):
 
 paths = []
 for i in range(1,13):
-    paths.append('/content/wood/WoodDataset/Train/' + str(i) + "/")
+    paths.append('/WoodDataset/Train/' + str(i) + "/")
 
 uri = []
 for i in paths:
@@ -63,14 +63,16 @@ dataset = []
 label = []
 
 for u in uri:
-    i = 1 
+    i = 0 
     for path in u:
         img = cv2.imread(path)
         img = cv2.resize(img,(width,height))
         img = img_to_array(img)
         dataset.append(img)
-        label.append([1,0])
-        i += 1
+        temp = [0,0,0,0,0,0,0,0,0,0,0,0]
+        temp[i] = 1
+        label.append(temp)
+        i -=- 1
 
 dataset = np.array(dataset, dtype="float") / 255.0
 label = np.array(label, dtype = 'int')
@@ -102,4 +104,3 @@ ax1.legend(['Training loss', 'Validation Loss'],loc = 'lower right',fontsize=8)
 ax1.set_xlabel('Epochs ',fontsize=16)
 ax1.set_ylabel('Loss',fontsize=16)
 ax1.set_title('Loss Curves',fontsize=16)
-
